@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<title>Treenilista</title>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<div class="col-md-4">
+		<h1>Treenit</h1>
+	</div>
+	<div class="col-md-4">
+		<h3 th:inline="text">Tervetuloa treenisovellukseen!</h3>
+	</div>
+	
+	<table class="table table-striped">
+		<tr>
+			<th>Otsikko</th>
+			<th>Pvm</th>
+			<th>Sijainti</th>
+			<th>Kesto</th>
+			<th>Kuvaus</th>
+			<th>Kategoria</th>
+			<th sec:authorize="hasAuthority('ADMIN')"> </th>
+		</tr>
+			<tr th:each = "treeni : ${treenit}">
+				<td th:text="${treeni.otsikko}"></td>
+				<td th:text="${treeni.pvm}"></td>
+				<td th:text="${treeni.sijainti}"></td>
+				<td th:text="${treeni.kesto}"></td>
+				<td th:text="${treeni.kuvaus}"></td>
+				<td th:text="${treeni.kategoria.nimi}"></td>
+					<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${treeni.id})}" 
+					class="btn btn-xs btn-danger" style="color: black; border: static;">Poista</a></td>
+			</tr>
+	</table>
+	
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Kirjaudu ulos" class="btn btn-sm btn-danger"
+			style="background-color: black; color: white; padding-top: 10px; padding-bottom: 10px; 
+			border-radius: 5px; font-family: Georgia, serif; font-size: 15px;"/>
+		</form>
+	</div>
+	
+	<a href="/add" class="btn btn-primary" 
+	style="color: black; text-align: center; margin-left: 460px;">Lisää treeni</a>
+</div>
+</body>
+</html>

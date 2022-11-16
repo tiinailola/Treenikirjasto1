@@ -1,0 +1,53 @@
+html {
+	font-family: "Georgia", serif;
+	font-size: 22px;
+	}
+	
+table {
+	font-size: 18px;
+}
+
+body {
+	background-color: #ffd9f2;
+}
+
+h1 {
+	text-align: center;
+	font-family: Century, Gothic;
+	font-size: 50px;
+}
+
+h3 {
+	font-size: 17px;
+	text-align: center;
+}
+
+table {
+	border-style: dotted;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-radius: 5px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	line-height: 1.5;
+	width: 1500px;
+	text-align: center;
+}
+
+label {
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 150px;
+    text-align: left;
+    margin-bottom: 18px;
+}
+input {
+  display: inline-block;
+  float: left;
+  width: 250px;
+  border-radius: 5px;
+  
+}
